@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Login AngularJS</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/libs/angular.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDeAzEU-MeAHwCcXknTiLi8pXVpfZJvo-c",
+            authDomain: "angularmeetingsapp-a8b00.firebaseapp.com",
+            databaseURL: "https://angularmeetingsapp-a8b00.firebaseio.com",
+            storageBucket: "angularmeetingsapp-a8b00.appspot.com",
+            messagingSenderId: "174110142038"
+        };
+        firebase.initializeApp(config);
+
+    </script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+    <script src="js/libs/angular-route.min.js"></script>
+    <script src="js/libs/angular-animate.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services/authetication.js"></script>
+    <script src="js/controllers/registration.js"></script>
+    <script src="js/controllers/meetings.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="cf" ng-include="'views/nav.html'"></nav>
+    </header>
+    <div class="page">
+        <div class="userinfo" ng-show="currentUser" ng-controller="RegistrationCtrl">
+            <span class="userinfo">Hi {{currentUser.firstname}}</span>
+            <a ng-href="#/login" ng-click="logout()">logout</a>
+        </div>
+        <main class="cf" ng-view>
+        </main>
+    </div>
+</body>
+
+</html>
