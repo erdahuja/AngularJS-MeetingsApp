@@ -12,8 +12,12 @@ myApp.controller('CheckInsCtrl', ['$scope', '$firebaseArray', '$firebaseObject',
     $scope.direction = null;
     $scope.query = '';
     $scope.pickRandom = function () {
-var rec=Math.round(Math.random()*(checkinsList.length-1));
-        $scope.recordId=checkinsList.$keyAt(rec);
+        var rec = Math.round(Math.random() * (checkinsList.length - 1));
+        $scope.recordId = checkinsList.$keyAt(rec);
+
+    };
+    $scope.showLove = function () {
+
 
     };
 
