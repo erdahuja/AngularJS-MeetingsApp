@@ -184,7 +184,7 @@ html {
 }
 
 body {
-    font-family: 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+    font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
     font-size: 1rem;
     line-height: 160%;
     color: #555459;
@@ -219,14 +219,14 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: serif;
+    font-family: 'Lato', serif;
     font-weight: 100;
     text-shadow: 1px 1px rgb(255, 255, 255, 1);
 }
 
 a {
     color: #2D8BCF;
-    font-family: 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+    font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
 
 header {
@@ -240,7 +240,7 @@ h1 {
     margin-bottom: 10px;
     padding-top: 10px;
     font-weight: 700;
-    font-family:  appleLogo, sans-serif;
+    font-family: Lato, appleLogo, sans-serif;
     margin: 0 0 1rem;
 }
 
