@@ -16,6 +16,12 @@ myApp.factory('Authentication', ['$rootScope', '$location', '$firebaseObject', '
         });
 
         myObject = {
+
+            checkLoginState: function () {
+                FB.getLoginStatus(function (response) {
+                    statusChangeCallback(response);
+                });
+            },
             login: function (user) {
                 auth.$signInWithEmailAndPassword(
                     user.email,

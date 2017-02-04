@@ -5,7 +5,9 @@
             <p>Log-in to access the awesomeness!</p>
             <p class="message" ng-show="message"> {{ message }}</p>
         </div>
+
         <fieldset>
+
             <input type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true">
             <p class="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched">
                 Must be a valid email</p>
@@ -13,6 +15,8 @@
             <p class="error validationerror" ng-show="myform.password.$invalid && myform.email.$touched">
                 Password is required</p>
         </fieldset>
+        <h2>Or</h2>
+        <div class="fb-login-button" data-max-rows="2" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
         <button type="submit" class="btn" ng-disabled="myform.$invalid">Login</button>
         <p>or <a ng-href="#/register">register</a></p>
     </form>
