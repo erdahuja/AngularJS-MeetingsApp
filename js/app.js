@@ -23,6 +23,10 @@ myApp.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'views/checkins.html',
         controller: 'CheckInsCtrl'
     }).
+    when('/checkins/:uId/:mId/checkinsList', {
+        templateUrl: 'views/checkinslist.html',
+        controller: 'CheckInsCtrl'
+    }).
 
     when('/meetings', {
         templateUrl: 'views/meetings.html',
