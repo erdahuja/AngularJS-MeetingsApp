@@ -1,76 +1,92 @@
-<div class="card chekinslist">
-    <h1>Check-ins</h1>
+<div class="card checkinslist">
+  <h1>Check-ins</h1>
+  <p>Here's a list of all your latest check-ins</p>
 
-    <p>Here's a list of all your latest check-ins</p>
-    <div class="search cf">
-        <h2>Search Checkins</h2>
-        <input type="text" ng-model="query" placeholder="search for users">
+  <div class="search cf">
+    <h2>Search Checkins</h2>
+    <input type="text" ng-model="query"
+      placeholder="Search for users">
 
-        <div class="formgroup">
-            <span class="label">by</span>
-            <select name="" ng-model="order" id="">
-                <option value="firstname">First Name</option>
-                <option value="lastname">Last Name</option>
-                <option value="date">Date</option>
+    <div class="formgroup">
+      <span class="label">by:</span>
+      <select ng-model="order">
+        <option value="firstname">First Name</option>
+        <option value="lastname">Last Name</option>
+        <option value="date">Date</option>
+      </select>
+    </div>
+    <div class="formgroup">
+      <input type="radio" id="dirascending" name="direction"
+        ng-model="direction">
+      <label for="dirascending">asc</label>&nbsp;
 
-            </select>
-
-        </div>
-        <div class="formgroup">
-            <input type="radio" id="dirascending" ng-model="direction" name="direction">
-            <label for="dirascending">asc</label>
-
-            <input type="radio" id="dirdescending" ng-model="direction" name="direction">
-            <label for="dirascending" value="reverse">desc</label>
-
-
-
-        </div>
-
-        <div class="buttons cf">
-            <button class="btn btn-pick" ng-hide="recordId" ng-click="pickRandom()">Pick Random</button>
-            <button class="btn btn-pick" ng-show="recordId" ng-click="recordId=''">Clear</button>
-
-
-
-        </div>
+      <input type="radio" id="dirdescending" name="direction"
+        ng-model="direction" value="reverse">
+      <label for="dirdescending">desc</label>
     </div>
 
+    <div ng-show="currentUser" class="buttons cf">
 
-    <ul class="userlist cf">
-        <li ng-repeat="checkin in checkins |orderBy : order:direction | filter:{$id:recordId,$:query}">
-            <div class="checkin">
+      <button class="btn btn-pick"
+        ng-hide="recordId" ng-click="pickRandom()">Pick Random</button>
 
+      <button class="btn btn-pick"
+        ng-show="recordId" ng-click="recordId=''">Reset</button>
+
+    </div>
+  </div>
+
+  <ul class="userlist cf">
+    <li ng-class="checkin.userState" ng-repeat="checkin in checkins | orderBy: order:direction | filter: { $id: recordId, $: query}">
+      <div class="checkin">
+        <div ng-show="currentUser" class="buttons">
+
+          <button class="btn btn-delete tooltip"
+            ng-click="deleteCheckin(checkin.$id)">
+            <span>Delete this check-in</span>
+          </button><!-- delete check-in -->
+
+          <button class="btn btn-love tooltip"
+            ng-click="showLove(checkin)">
+            <span>Show the love</span>
+          </button>
+
+        </div> <!-- buttons -->
+        <div class="info">
+          <h2>{{checkin.firstname}} {{checkin.lastname}}</h2>
+          <div class="date">
+            {{checkin.date | date: "MMM d,yy h:mm a"}}
+          </div><!-- date -->
+        </div><!-- info -->
+
+        <div class="showcheckins" ng-show="checkin.show">
+          <form class="cf"
+            ng-submit="giveLove(checkin, checkin.giftText)"
+            novalidate>
+
+            <input type="text" name="giftText"
+              placeholder="What are you giving?"
+              ng-required="true" ng-model="checkin.giftText">
+
+            <button class="btn" type="submit"
+              ng-disabled="myform.$invalid">+</button>
+
+          </form><!-- giveLove -->
+          <ul class="awardslist cf">
+            <li class="cf" ng-repeat="(key, award) in checkin.awards">
+              <div class="award">
                 <div class="buttons">
-                    <button class="btn btn-delete tooltip" ng-click="deleteCheckin(checkin.$id)">
-                        <span>Delete this checkin</span>
-
-                    </button>
-                    <button class="btn btn-love tooltip" ng-click="showLove(checkin)">
-
-                        <span> Show Love</span>
-                    </button>
-
-                </div>
-
-                <div class="info">
-                    <h2>{{checkin.firstname}}</h2>
-                    <div class="date">{{checkin.date|date:'medium'}}</div>
-                </div>
-            </div>
-
-            <div class="showcheckins" ng-show="checkin.show">
-                <form class="cf" ng-submit="giveLove(checkin,checkin.giftText)" novalidate>
-                    <input type="text" name="giftText" placeholder="What are you giving?" ng-required="true" ng-model="checkin.giftText">
-                    <button class="btn" type="submit" ng-disabled="myform.$invalid">+</button>
-
-                </form>
-            </div>
-
-        </li>
-
-
-    </ul>
-
-
+                  <button class="btn btn-delete award tooltip"
+                    ng-click="deleteLove(checkin,key)">
+                    <span>Delete this award</span>
+                  </button>
+                </div><!-- buttons -->
+                {{award.name}}
+              </div>
+            </li>
+          </ul>
+        </div><!-- showcheckins -->
+      </div><!-- checkin -->
+    </li>
+  </ul>
 </div>
