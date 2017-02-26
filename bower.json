@@ -1,0 +1,15 @@
+{
+  "name": "AngularJS-MeetingsApp",
+  "homepage": "https://github.com/erdahuja/AngularJS-MeetingsApp",
+  "authors": [
+    "erdahuja",
+    "monis01 <mnskhn7997@gmail.com>"
+  ],
+  "description": "angularJS-meeting-app",
+  "main": "",
+  "license": "MIT",
+  "devDependencies": {
+    "restangular": "^1.6.1",
+    "angular-ui-router": "^0.4.2"
+  }
+}
