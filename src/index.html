@@ -6,24 +6,7 @@
     <title>The Meetings App</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/libs/angular.min.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyDeAzEU-MeAHwCcXknTiLi8pXVpfZJvo-c",
-            authDomain: "angularmeetingsapp-a8b00.firebaseapp.com",
-            databaseURL: "https://angularmeetingsapp-a8b00.firebaseio.com",
-            storageBucket: "angularmeetingsapp-a8b00.appspot.com",
-            messagingSenderId: "174110142038"
-        };
-        firebase.initializeApp(config);
-        
-
-    </script>
-    <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+    <link rel="stylesheet" href="styles/css/style.css">
     <script>
         window.fbAsyncInit = function() {
             FB.init({
@@ -47,17 +30,10 @@
         }(document, 'script', 'facebook-jssdk'));
 
     </script>
-    <script src="js/libs/angular-route.min.js"></script>
-    <script src="js/libs/angular-animate.min.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/services/authetication.js"></script>
-    <script src="js/controllers/registration.js"></script>
-    <script src="js/controllers/meetings.js"></script>
-    <script src="js/controllers/checkins.js"></script>
+   <!--  <script src="js/libs/angular-animate.min.js"></script> -->
 </head>
 
 <body>
-
 
     <header>
         <nav class="cf" ng-include="'views/nav.html'"></nav>
@@ -71,6 +47,33 @@
         <main class="cf" ng-view>
         </main>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="js/libs/angular-route.min.js"></script>
+    <script src="vendor/lodash/lodash.js"></script>
+    <script src="vendor/restangular/dist/restangular.min.js"></script>
+    <script src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="vendor/angular-animate/angular-animate.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="js/services/authetication.js"></script>
+    <script src="js/controllers/registration.js"></script>
+    <script src="js/controllers/meetings.js"></script>
+    <script src="js/controllers/checkins.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDeAzEU-MeAHwCcXknTiLi8pXVpfZJvo-c",
+            authDomain: "angularmeetingsapp-a8b00.firebaseapp.com",
+            databaseURL: "https://angularmeetingsapp-a8b00.firebaseio.com",
+            storageBucket: "angularmeetingsapp-a8b00.appspot.com",
+            messagingSenderId: "174110142038"
+        };
+        firebase.initializeApp(config);
+        
+
+    </script>
 </body>
 
 </html>
