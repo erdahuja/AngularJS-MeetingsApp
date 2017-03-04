@@ -1,0 +1,19 @@
+angular.module('home',[])
+.config(function($stateProvider) {
+    $stateProvider
+    .state('mainHome',{
+    	abstract:true,
+    	url:'',
+    	templateUrl:'app/home/templates/main-home-template.html',
+    	controller:'mainHomeController'
+    })
+    .state('mainHome.dashboard',{
+    	url:'/dashboard',
+    	views:{
+    		'content_views':{
+    	template:'<h2>Dashboard</h2>',
+        controller:"dashboardControlller"
+    		}
+    	}
+    })
+});

@@ -1,11 +1,13 @@
-var myApp = angular.module('myApp', [
-    'ngRoute', 
-    'firebase',
+myApp = angular.module('myApp',[
+	 'firebase',
     'restangular',
-    'ui.router'
-    ]);
-
+    'ui.router',
+    'home',
+    'login&register'
+	])
 myApp.run(['$rootScope', '$location', function ($rootScope, $location) {
+
+	//@ will be handles via states and checking token
     $rootScope.$on('$routeChangeError', function (event, next, previous, error) {
         if (error == 'AUTH_REQUIRED') {
             $rootScope.message = 'Sorry, you must log in to access that page';
@@ -14,7 +16,23 @@ myApp.run(['$rootScope', '$location', function ($rootScope, $location) {
     }); //$routeChangeError
 }]); //run
 
-//@ not required now
+myApp.config(function($stateProvider) {
+  var helloState = {
+    name: 'hello',
+    url: '/hello',
+    template: '<h3>hello world!</h3>'
+  }
+
+  var aboutState = {
+    name: 'about',
+    url: '/about',
+    template: '<h3>Its the UI-Router hello world app!</h3>'
+  }
+
+  $stateProvider.state(helloState);
+  $stateProvider.state(aboutState);
+});
+
 // myApp.config(['$routeProvider', function ($routeProvider) {
 //     $routeProvider.
 //     when('/login', {
