@@ -11,7 +11,7 @@ angular.module('login&register',[])
 		views:{
 			'visitor_content':{
 		templateUrl:'loginAndResgister/templates/login-template.html',
-		controllers:'loginController'
+		controller:'loginController'
 				
 			}
 		}
@@ -21,7 +21,7 @@ angular.module('login&register',[])
 		views:{
 			'visitor_content':{
 		templateUrl:'loginAndResgister/templates/register-template.html',
-		controllers:'registerController'
+		controller:'registerController'
 				
 			}
 

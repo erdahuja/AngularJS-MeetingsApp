@@ -3,7 +3,8 @@ myApp = angular.module('myApp',[
     'restangular',
     'ui.router',
     'home',
-    'login&register'
+    'login&register',
+    'general'
 	])
 myApp.run(['$rootScope', '$location', function ($rootScope, $location) {
 
