@@ -4,7 +4,9 @@ myApp = angular.module('myApp',[
     'ui.router',
     'home',
     'login&register',
-    'general'
+    'general',
+    'meetings',
+    'checkins'
 	])
 myApp.run(['$rootScope', '$location', function ($rootScope, $location) {
 
@@ -66,3 +68,12 @@ myApp.config(function($stateProvider) {
 //         redirectTo: '/meetings'
 //     });
 // }]);
+
+
+/*@ test states*/
+/* running states*/
+// 1. login          :  /login
+// 2. register       :  /register 
+// 3. meetingAdd     :  /meetings/new
+// 4. checkinsList   :  /checkins/list
+// 5. checkinsConfirm:  /checkins/confirm
