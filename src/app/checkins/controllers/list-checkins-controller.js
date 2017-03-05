@@ -1,15 +1,19 @@
 angular.module('checkins')
-.controller('listCheckinsController',['$scope', '$rootScope', '$location', '$routeParams', '$firebaseObject', '$firebaseArray',
-  function ($scope, $rootScope, $location, $routeParams, $firebaseObject, $firebaseArray) {
+// .controller('listCheckinsController',['$scope', '$rootScope', '$location', '$routeParams', '$firebaseObject', '$firebaseArray',
+//   function ($scope, $rootScope, $location, $routeParams, $firebaseObject, $firebaseArray) {
+
+//@ will be using $stateParams
+.controller('listCheckinsController',['$scope', '$rootScope', '$location', '$firebaseObject', '$firebaseArray',
+  function ($scope, $rootScope, $location, $firebaseObject, $firebaseArray) {
 
         var ref, checkinsList;
 
-        $scope.whichmeeting = $routeParams.mId;
-        $scope.whichuser = $routeParams.uId;
+     //  $scope.whichmeeting = $routeParams.mId;
+     //   $scope.whichuser = $routeParams.uId;
 
         ref = firebase.database().ref()
-            .child('users').child($scope.whichuser)
-            .child('meetings').child($scope.whichmeeting)
+           // .child('users').child($scope.whichuser)
+           // .child('meetings').child($scope.whichmeeting)
             .child('checkins');
 
         checkinsList = $firebaseArray(ref);
