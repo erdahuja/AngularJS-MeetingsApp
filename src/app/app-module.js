@@ -8,7 +8,15 @@ myApp = angular.module('myApp',[
     'meetings',
     'checkins'
 	])
-myApp.run(['$rootScope', '$location', function ($rootScope, $location) {
+myApp.run(['$rootScope', '$location','fireBaseConstants', function ($rootScope, $location,fireBaseConstants) {
+  var config = {
+            apiKey:fireBaseConstants.apiKey,
+            authDomain: fireBaseConstants.authDomain,
+            databaseURL: fireBaseConstants.databaseURL,
+            storageBucket:fireBaseConstants.storageBucket ,
+            messagingSenderId: fireBaseConstants.messagingSenderId
+        };
+        firebase.initializeApp(config)
 
 	//@ will be handles via states and checking token
     $rootScope.$on('$routeChangeError', function (event, next, previous, error) {
@@ -17,8 +25,36 @@ myApp.run(['$rootScope', '$location', function ($rootScope, $location) {
             $location.path('/login');
         } //Auth Required
     }); //$routeChangeError
+     window.fbAsyncInit = function() {
+            FB.init({
+                appId: '1637367083234452',
+                cookie: true,
+                xfbml: true,
+                version: 'v2.8'
+            });
+            FB.AppEvents.logPageView();
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
 }]); //run
 
+
+myApp.constant('fireBaseConstants',{
+    'apiKey':'AIzaSyDeAzEU-MeAHwCcXknTiLi8pXVpfZJvo-c',
+    'authDomain':'angularmeetingsapp-a8b00.firebaseapp.com',
+    'databaseURL':'https://angularmeetingsapp-a8b00.firebaseio.com',
+    'storageBucket':'angularmeetingsapp-a8b00.appspot.com',
+    'messagingSenderId':'174110142038'
+})
 myApp.config(function($stateProvider) {
   var helloState = {
     name: 'hello',
