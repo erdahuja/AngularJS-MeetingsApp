@@ -1,8 +1,6 @@
 angular.module('general',[])
 .factory('Authentication', ['$rootScope', '$location', '$firebaseObject', '$firebaseAuth',
-    'loginServices',
-    '$state',
-    function ($rootScope, $location, $firebaseObject, $firebaseAuth,loginServices,$state) {
+    function ($rootScope, $location, $firebaseObject, $firebaseAuth) {
 
         var ref = firebase.database().ref();
         var auth = $firebaseAuth();
@@ -32,9 +30,7 @@ angular.module('general',[])
                 ).then(function (user) {
                     //$location.path('/meetings');
                      //@ will do later once all states are ready
-                   
-                   // console.log(loginServices.checkIfLogin())
-                   $state.go('mainHome.dashboard')
+                    alert('successfull Login')
                 }).catch(function (error) {
                     $rootScope.message = error.message;
                 }); //signInWithEmailAndPassword

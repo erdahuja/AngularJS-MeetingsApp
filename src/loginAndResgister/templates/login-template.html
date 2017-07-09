@@ -16,9 +16,9 @@
             <p class="error validationerror" ng-show="myform.password.$invalid && myform.email.$touched">
                 Password is required</p>
         </fieldset>
+        <h2>Or</h2>
         <div class="fb-login-button" data-max-rows="2" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
         <button type="submit" class="btn" ng-disabled="myform.$invalid">Login</button>
-        <h2>Or</h2>
-        <p><a ui-sref="visitorPage.register">register</a></p>
+        <p>or <a ui-sref="visitorPage.register">register</a></p>
     </form>
 </section>
